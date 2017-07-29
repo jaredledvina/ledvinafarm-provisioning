@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    docker:
+       - image: hashicorp/terraform:light
+         environment:
+             TERRAGRUNT_VERSION: 0.12.25
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Install terragrunt
+          command: curl -L https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_linux_386 -o /bin/terragrunt && chmod +x /bin/terragrunt
+
+      - run:
+          name: Execute a terragrunt plan
+          command: terragrunt plan

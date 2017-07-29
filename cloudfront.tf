@@ -59,4 +59,3 @@ resource "aws_cloudfront_distribution" "website_distribution" {
     acm_certificate_arn      = "${data.aws_acm_certificate.ledvina-farm.arn}"
   }
 }
-

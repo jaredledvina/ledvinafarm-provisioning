@@ -12,5 +12,5 @@ provider "aws" {
 }
 
 provider "awscreds" {
-    region = "${var.region}"
+  region = "${var.region}"
 }

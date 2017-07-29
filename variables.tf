@@ -25,4 +25,3 @@ variable "domain" {
   description = "The domain used for everything"
   default     = "ledvina.farm"
 }
-

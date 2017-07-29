@@ -10,7 +10,7 @@ resource "aws_s3_bucket" "main-trail" {
   bucket        = "ledvina-farm-cloudtrail"
   force_destroy = true
 
-  policy        = <<POLICY
+  policy = <<POLICY
 {
     "Version": "2012-10-17",
     "Statement": [
