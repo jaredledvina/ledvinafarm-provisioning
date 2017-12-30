@@ -53,6 +53,27 @@ data "aws_iam_policy_document" "blogupdater" {
 data "aws_iam_policy_document" "terraformplan" {
   statement {
     actions = [
+      "dynamodb:*",
+    ]
+
+    resources = [
+      "arn:aws:dynamodb:*:::table/ledvinafarm-state-lock*",
+    ]
+  }
+
+  statement {
+    actions = [
+      "s3:*",
+    ]
+
+    resources = [
+      "arn:aws:s3:::ledvinafarm-state*",
+      "arn:aws:s3:::ledvinafarm-state*/*",
+    ]
+  }
+
+  statement {
+    actions = [
       "cloudfront:Get*",
       "cloudfront:List*",
       "cloudtrail:Describe*",
