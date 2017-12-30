@@ -11,7 +11,9 @@ jobs:
       - run:
           name: Install terragrunt
           command: curl -L https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_linux_386 -o /bin/terragrunt && chmod +x /bin/terragrunt
-
+      - run:
+          name: Execute a terragrunt get
+          command: terragrunt get
       - run:
           name: Execute a terragrunt plan
           command: terragrunt plan
