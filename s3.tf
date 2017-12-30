@@ -1,3 +1,12 @@
+resource "aws_s3_bucket" "ledvinafarm_state" {
+  bucket = "ledvinafarm-state"
+  acl    = "private"
+
+  versioning {
+    enabled = "true"
+  }
+}
+
 resource "aws_s3_bucket" "logging" {
   bucket = "ledvina-farm-s3-logs"
   acl    = "log-delivery-write"
