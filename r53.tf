@@ -30,3 +30,11 @@ resource "aws_route53_record" "aaaa_ledvina_farm" {
     evaluate_target_health = false
   }
 }
+
+resource "aws_route53_record" "a_home_ledvina_farm" {
+  zone_id = "${aws_route53_zone.domain.zone_id}"
+  name    = "www.example.com"
+  type    = "A"
+  ttl     = "300"
+  records = ["${aws_eip.lb.public_ip}"]
+}
