@@ -12,7 +12,7 @@ resource "aws_s3_bucket" "logging" {
   acl    = "log-delivery-write"
 
   versioning {
-    enabled = true
+    enabled = "true"
   }
 }
 
