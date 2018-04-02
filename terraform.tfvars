@@ -1,6 +1,7 @@
 terragrunt = {
   remote_state {
     backend = "s3"
+
     config {
       bucket     = "ledvinafarm-state"
       key        = "${path_relative_to_include()}/terraform.tfstate"
