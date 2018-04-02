@@ -141,9 +141,9 @@ output "circleci-secret" {
 }
 
 output "circleci-provisioning-access" {
-  value = "${aws_iam_access_key.circleci-key.id}"
+  value = "${aws_iam_access_key.circleci-provisioning-key.id}"
 }
 
 output "circleci-provisioning-secret" {
-  value = "${aws_iam_access_key.circleci-key.encrypted_secret}"
+  value = "${aws_iam_access_key.circleci-provisioning-key.encrypted_secret}"
 }
