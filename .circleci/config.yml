@@ -3,12 +3,14 @@ jobs:
   build:
     docker:
        - image: hashicorp/terraform:light
+         environment:
+           TF_IN_AUTOMATION: True
     working_directory: ~/repo
     steps:
       - checkout
       - run:
           name: Execute a terraform init
-          command: terraform init -upgrade -input=false
+          command: terraform init -input=false -no-color -upgrade -lock-timeout=2s -backend-config="bucket=ledvina-farm" -backend-config="key=terraform.tfstate" -backend-config="region=us-east-2"
       - run:
           name: Execute a terraform plan
           command: terraform plan -detailed-exitcode -lock-timeout=2s -no-color -input=false
