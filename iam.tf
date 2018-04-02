@@ -84,6 +84,7 @@ data "aws_iam_policy_document" "terraformplan" {
 
   statement {
     actions = [
+      "acm:DescribeCertificate",
       "acm:ListCertificates",
       "cloudfront:Get*",
       "cloudfront:List*",
