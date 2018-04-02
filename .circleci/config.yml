@@ -3,17 +3,12 @@ jobs:
   build:
     docker:
        - image: hashicorp/terraform:light
-         environment:
-             TERRAGRUNT_VERSION: 0.14.6
     working_directory: ~/repo
     steps:
       - checkout
       - run:
-          name: Install terragrunt
-          command: curl -L https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT_VERSION}/terragrunt_linux_386 -o /bin/terragrunt && chmod +x /bin/terragrunt
+          name: Execute a terraform init
+          command: terraform init -upgrade -input=false
       - run:
-          name: Execute a terragrunt get
-          command: terragrunt get -update=true -no-color
-      - run:
-          name: Execute a terragrunt plan
-          command: terragrunt plan -detailed-exitcode -lock-timeout=2s -no-color
+          name: Execute a terraform plan
+          command: terraform plan -detailed-exitcode -lock-timeout=2s -no-color -input=false
