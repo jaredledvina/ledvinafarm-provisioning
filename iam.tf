@@ -63,12 +63,22 @@ data "aws_iam_policy_document" "terraformplan" {
 
   statement {
     actions = [
-      "s3:*",
+      "s3:ListBucket",
     ]
 
     resources = [
-      "arn:aws:s3:::ledvinafarm-state*",
-      "arn:aws:s3:::ledvinafarm-state*/*",
+      "arn:aws:s3:::ledvinafarm-state",
+    ]
+  }
+
+  statement {
+    actions = [
+      "s3:GetObject",
+      "s3:PutObject",
+    ]
+
+    resources = [
+      "arn:aws:s3:::ledvinafarm-state/terraform.tfstate",
     ]
   }
 
