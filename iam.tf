@@ -53,11 +53,13 @@ data "aws_iam_policy_document" "blogupdater" {
 data "aws_iam_policy_document" "terraformplan" {
   statement {
     actions = [
-      "dynamodb:*",
+      "dynamodb:DeleteItem",
+      "dynamodb:GetItem",
+      "dynamodb:PutItem",
     ]
 
     resources = [
-      "arn:aws:dynamodb:*:::table/ledvinafarm-state-lock*",
+      "arn:aws:dynamodb:us-east-2:037375441646:table/ledvinafarm-state-lock",
     ]
   }
 

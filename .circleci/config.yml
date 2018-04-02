@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: Execute a terraform init
-          command: terraform init -input=false -no-color -upgrade -lock-timeout=2s -backend-config="bucket=ledvina-farm" -backend-config="key=terraform.tfstate" -backend-config="region=us-east-2"
+          command: terraform init -input=false -no-color -upgrade -lock-timeout=2s
       - run:
           name: Execute a terraform plan
           command: terraform plan -detailed-exitcode -lock-timeout=2s -no-color -input=false
